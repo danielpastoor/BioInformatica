@@ -126,10 +126,12 @@ def main():
                         help="values of the group type that needs to be calculated")
 
     args = parser.parse_args()
+    # pre define variables
     file_dir = args.file_name
     group_column = args.group_column
     value_column = args.value_column
     type_values = []
+    # check if there are given values and split it as you can give multiple values
     if args.type_values != None:
         type_values = str(args.type_values).lower().replace(" ", "").split(",")
 
@@ -207,6 +209,7 @@ def main():
             grouped_values
         )
     elif "all" in type_values:
+        # if the given argument is all then use all types
         type_values = grouped_values
     else:
         # filter grouped values that does not exists
